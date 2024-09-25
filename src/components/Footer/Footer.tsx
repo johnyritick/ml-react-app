@@ -1,5 +1,5 @@
 import React from 'react'
-import { CallIcon, EmailIcon, FacbookIcon, LinkedIn, LocationIcon, TwitterIcon, FooterLogo } from '../../Assets/Icons/Icon'
+import { CallIcon, EmailIcon, FacbookIcon, LinkedIn, LocationIcon, TwitterIcon } from '../../Assets/Icons/Icon'
 import ClixoLogo from "../../Assets/Images/Clixo_logo_footer.png"
 
 const socialMedia = [
@@ -32,7 +32,7 @@ const Footer = () => {
         <div className="flex flex-row mt-8 mb-6 items-center flex-wrap">
             <div className='flex flex-row justify-center sm:justify-between w-[100%] sm:w-[70%] flex-wrap'>
                 <div className='ml-[-28px]'>
-                    <FooterLogo />
+                    {/* <FooterLogo /> */}
                 </div>
                 {screenWidth > 600 && <div className='flex flex-row mr-4 items-center'>
                     {footerNavs.map((item) => {

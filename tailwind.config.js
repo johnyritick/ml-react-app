@@ -9,6 +9,9 @@ module.exports = {
         xl: '1280px',
       },
       extend: {
+        backgroundImage: {
+          'custom-gradient': 'linear-gradient(176deg, rgba(5,117,230,1) 0%, rgba(2,41,138,1) 84.7%, rgba(2,27,121,1) 88%)',
+        },
       }
     },
     plugins: [],
