@@ -10,10 +10,6 @@ const Register = () => {
     const [email, setEmail] = useState<string>("")
     const [password, setPassword] = useState<string>("")
 
-    const passwordValidator = () => {
-
-    }
-
     const registerAction = async () => {
         const validate = registerValidator()
         if (validate.success) {

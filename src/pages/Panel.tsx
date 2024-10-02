@@ -6,6 +6,12 @@ import SectionOne from '../components/Panel/Dashboard/SectionOne';
 import Sidebar from '../components/NavBar/Sidebar';
 import UserDashboard from '../components/Panel/Dashboard/UserDashboard';
 import TokenExpired from '../auth/TokenExpired/TokenExpired';
+import ReportDetails from '../components/Panel/Report/ReportDetails';
+import UserFaq from '../components/Panel/FAQ/UserFaq';
+import AdminFaq from '../components/Panel/FAQ/AdminFaq';
+import Activity from '../components/Panel/Activities/Activity';
+import ManageUser from '../components/Panel/ManageUsers/ManageUser';
+import CustomGraph from '../components/Panel/Report/CustomGraph';
 
 const Panel = () => {
     const navigate = useNavigate();
@@ -20,10 +26,9 @@ const Panel = () => {
             // navigate("/panel/dashboard")
             // set the required data in local storage
             let decodedToken = parseJwt(auth_token);
-            console.log("decodeToken", decodedToken);
             let currentDate = new Date();
             let expiryDate = new Date(decodedToken.exp * 1000);
-            if(currentDate < expiryDate) {
+            if (currentDate < expiryDate) {
                 setRole(decodedToken.role)
             } else {
                 navigate("/token-expired")
@@ -65,6 +70,30 @@ const Panel = () => {
                         path='dashboard'
                         element={<Suspense fallback={<></>}><UserDashboard /></Suspense>}
                     />}
+                {role === "user" ? <Route
+                    path='learn-more'
+                    element={<Suspense fallback={<></>}><ReportDetails /></Suspense>}
+                /> : <></>}
+                {role === "user" ? <Route
+                    path='faq'
+                    element={<Suspense fallback={<></>}><UserFaq /></Suspense>}
+                /> : <Route
+                    path='faq'
+                    element={<Suspense fallback={<></>}><AdminFaq /></Suspense>}
+                />}
+                {/* {role === "admin" ? <Route
+                    path='activity'
+                    element={<Suspense fallback={<></>}><Activity /></Suspense>}
+                /> : <></>} */}
+                {role === "admin" ? <Route
+                    path='graph'
+                    element={<Suspense fallback={<></>}><CustomGraph /></Suspense>}
+                /> : <></>}
+                {role === "admin" ? <Route
+                    path='manage-users'
+                    element={<Suspense fallback={<></>}><ManageUser /></Suspense>}
+                /> : <></>}
+
                 <Route path='section' element={<Suspense fallback={<></>}><SectionOne /></Suspense>} />
                 <Route path='/*' element={<Suspense fallback={<></>}><PageNotFound /></Suspense>} />
             </Routes>

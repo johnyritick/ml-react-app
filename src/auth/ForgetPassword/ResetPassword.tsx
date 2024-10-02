@@ -9,10 +9,8 @@ const ResetPassword = () => {
     const [email, setEmail] = useState<string>("");
 
     const resetAction = async () => {
-
-
         if (email.trim().length) {
-            await fetch("http://0.0.0.0:80/forgot-password", {
+            await fetch("http://0.0.0.0:80/auth/forgot-password", {
                 method: "POST",
                 headers: {
                     "Content-Type": 'application/json'

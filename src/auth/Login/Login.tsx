@@ -32,7 +32,7 @@ const Login = () => {
                 },
                 body: JSON.stringify({ email, password })
             }).then((res) => res.json()).then((response) => {
-                // if (response.success) {
+                if (response.success) {
                     toast.success("Logged In Successfully", {
                         position: 'bottom-center',
                         autoClose: 3000
@@ -41,12 +41,12 @@ const Login = () => {
                     localStorage.setItem("auth_token", response.token)
                     localStorage.setItem("email", email)
                     navigate("/panel/dashboard")
-                // } else {
-                //     toast.error(response.message ?? "Failed to login", {
-                //         position: 'bottom-center',
-                //         autoClose: 3000
-                //     })
-                // }
+                } else {
+                    toast.error(response.message ?? "Failed to login", {
+                        position: 'bottom-center',
+                        autoClose: 3000
+                    })
+                }
             })
         } else {
             toast.error(validate.message, {
