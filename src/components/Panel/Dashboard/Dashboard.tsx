@@ -20,8 +20,6 @@ const Dashboard: React.FC = () => {
   }, [])
 
   const openModalAction = (data: {}) => {
-    console.log("modal", data);
-
     setModalData(data)
     setIsModalOpen(true)
   }

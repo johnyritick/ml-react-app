@@ -26,7 +26,6 @@ const footerNavs = [
 
 const Footer = () => {
     const screenWidth = window.innerWidth;
-    console.log("screenWidth",screenWidth);
     
     return <div className='flex flex-col mx-auto w-[90%] mt-6'>
         <div className="flex flex-row mt-8 mb-6 items-center flex-wrap">

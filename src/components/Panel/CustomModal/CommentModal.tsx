@@ -22,19 +22,18 @@ const CommentModal = ({ isModalOpen, closeModal }: {
             }
         }).then((res) => res.json()).then((response: any) => {
             if (response.success) {
-                console.log("comment dara", response);
                 let temp: any = []
                 if (response.comments.length) {
                     response.comments.map((item: any, index: number) => {
                         temp.push({
                             key: index + 1,
                             comment: item.comment,
-                            user_id: item.user_id,
+                            faq_id: item.user_id,
+                            email: item.user_email ?? "NA",
                             created_at: item.created_at
                         })
                     })
                 }
-
                 setData(temp)
             } else {
                 toast.error(response.message ?? "Failed to get data", {

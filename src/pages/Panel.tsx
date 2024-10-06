@@ -13,7 +13,6 @@ import CustomGraph from '../components/Panel/Report/CustomGraph';
 
 const Panel = () => {
     const navigate = useNavigate();
-    // const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
     const [loader, setLoader] = useState<boolean>(true);
     const [role, setRole] = useState<string>("");
 
@@ -21,7 +20,6 @@ const Panel = () => {
         const auth_token = localStorage.getItem("auth_token");
 
         if (auth_token && auth_token.trim().length) {
-            // navigate("/panel/dashboard")
             // set the required data in local storage
             let decodedToken = parseJwt(auth_token);
             let currentDate = new Date();
@@ -79,10 +77,7 @@ const Panel = () => {
                     path='faq'
                     element={<Suspense fallback={<></>}><AdminFaq /></Suspense>}
                 />}
-                {/* {role === "admin" ? <Route
-                    path='activity'
-                    element={<Suspense fallback={<></>}><Activity /></Suspense>}
-                /> : <></>} */}
+
                 {role === "admin" ? <Route
                     path='graph'
                     element={<Suspense fallback={<></>}><CustomGraph /></Suspense>}

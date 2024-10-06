@@ -39,7 +39,6 @@ const ReportDetails = () => {
               temp.push({ key: item, value: response.detail[0][item] })
             }
           })
-          console.log("temp", temp, response.detail[0]);
 
           // setData(response.detail[0])
           setData(temp)

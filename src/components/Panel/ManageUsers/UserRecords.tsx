@@ -17,8 +17,6 @@ const UserRecords = ({ data }: { data: { [key: string]: string | number }[] }) =
 
     const getUsersData = async (email: string = "") => {
         if (data && data.length) {
-            console.log(";daataa", data);
-
             let temp: UserDataType[] = []
             data.map((item: any, index: number) => {
                 temp.push({
