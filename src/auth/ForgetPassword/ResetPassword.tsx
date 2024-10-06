@@ -10,7 +10,7 @@ const ResetPassword = () => {
 
     const resetAction = async () => {
         if (email.trim().length) {
-            await fetch("http://0.0.0.0:80/auth/forgot-password", {
+            await fetch(process.env.REACT_APP_BASE_URL + "auth/forgot-password", {
                 method: "POST",
                 headers: {
                     "Content-Type": 'application/json'

@@ -25,7 +25,7 @@ const Login = () => {
         const validate = loginValidator()
 
         if (validate.success) {
-            await fetch("http://0.0.0.0:80/auth/login", {
+            await fetch(process.env.REACT_APP_BASE_URL +"auth/login", {
                 method: "POST",
                 headers: {
                     "Content-Type": 'application/json'

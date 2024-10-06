@@ -5,11 +5,9 @@ import Dashboard from '../components/Panel/Dashboard/Dashboard';
 import SectionOne from '../components/Panel/Dashboard/SectionOne';
 import Sidebar from '../components/NavBar/Sidebar';
 import UserDashboard from '../components/Panel/Dashboard/UserDashboard';
-import TokenExpired from '../auth/TokenExpired/TokenExpired';
 import ReportDetails from '../components/Panel/Report/ReportDetails';
 import UserFaq from '../components/Panel/FAQ/UserFaq';
 import AdminFaq from '../components/Panel/FAQ/AdminFaq';
-import Activity from '../components/Panel/Activities/Activity';
 import ManageUser from '../components/Panel/ManageUsers/ManageUser';
 import CustomGraph from '../components/Panel/Report/CustomGraph';
 

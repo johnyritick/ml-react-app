@@ -28,7 +28,7 @@ const Dashboard: React.FC = () => {
 
   const getUsersData = async (email: string = "") => {
     setLoader(true)
-    await fetch("http://0.0.0.0:80/admin/users", {
+    await fetch(process.env.REACT_APP_BASE_URL + "admin/users", {
       method: "GET",
       headers: {
         "Authorization": localStorage.getItem("auth_token") ?? ""
