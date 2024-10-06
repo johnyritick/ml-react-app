@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react'
 import AuthScreen from '../helper/AuthScreen';
 import circleRing from "../../Assets/Images/circleRingReverse.png"
 import { useNavigate } from 'react-router';
+import { Spin } from 'antd';
 import { ToastContainer, toast } from 'react-toastify';
 
 const Login = () => {
     const navigate = useNavigate()
+    const [loader, setLoader] = useState<boolean>(false);
     const [email, setEmail] = useState<string>("")
     const [password, setPassword] = useState<string>("")
 
@@ -23,9 +25,9 @@ const Login = () => {
 
     const loginAction = async () => {
         const validate = loginValidator()
-
         if (validate.success) {
-            await fetch(process.env.REACT_APP_BASE_URL +"auth/login", {
+            setLoader(true)
+            await fetch(process.env.REACT_APP_BASE_URL + "auth/login", {
                 method: "POST",
                 headers: {
                     "Content-Type": 'application/json'
@@ -47,7 +49,7 @@ const Login = () => {
                         autoClose: 3000
                     })
                 }
-            })
+            }).finally(() => setLoader(false))
         } else {
             toast.error(validate.message, {
                 position: 'bottom-center',
@@ -107,7 +109,7 @@ const Login = () => {
                             <input type="password" id="input-group-1" className="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-gray-300 focus:border-gray-300 block w-full ps-12 p-2.5" placeholder="Password" onChange={(e) => setPassword(e.target.value)} value={password} />
                         </div>
 
-                        <button className='text-white bg-[#0575E6] hover:bg-custom-gradient px-[26px] py-[18px] rounded-[30px]' onClick={loginAction}>Login</button>
+                        {loader ? <Spin /> : <button className='text-white bg-[#0575E6] hover:bg-custom-gradient px-[26px] py-[18px] rounded-[30px]' onClick={loginAction}>Login</button>}
 
                         <button onClick={handleForgetPassword} className='text-[#333333ba] mt-6'>
                             Forgot Password ?
