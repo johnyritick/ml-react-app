@@ -3,9 +3,11 @@ import AuthScreen from '../helper/AuthScreen'
 import circleRing from "../../Assets/Images/circleRingReverse.png"
 import { useNavigate } from 'react-router'
 import { ToastContainer, toast } from 'react-toastify'
+import { Spin } from 'antd';
 
 const Register = () => {
     const navigate = useNavigate()
+    const [loader, setLoader] = useState<boolean>(false);
     const [name, setName] = useState<string>("")
     const [email, setEmail] = useState<string>("")
     const [password, setPassword] = useState<string>("")
@@ -13,6 +15,7 @@ const Register = () => {
     const registerAction = async () => {
         const validate = registerValidator()
         if (validate.success) {
+            setLoader(true);
             await fetch(process.env.REACT_APP_BASE_URL + "auth/register", {
                 method: "POST",
                 headers: {
@@ -34,7 +37,7 @@ const Register = () => {
                         autoClose: 3000
                     })
                 }
-            })
+            }).finally(() => setLoader(false))
         } else {
             toast.error(validate.message, {
                 position: 'bottom-center',
@@ -104,7 +107,7 @@ const Register = () => {
                         <input type="password" id="input-group-1" className="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-gray-300 focus:border-gray-300 block w-full ps-12 p-2.5" placeholder="Password" onChange={(e) => setPassword(e.target.value)} value={password} />
                     </div>
 
-                    <button className='text-white bg-[#0575E6] px-[26px] py-[18px] rounded-[30px]' onClick={registerAction}>Register</button>
+                    {loader ? <Spin /> : <button className='text-white bg-[#0575E6] px-[26px] py-[18px] rounded-[30px]' onClick={registerAction}>Register</button>}
                 </div>
             </div>
 
