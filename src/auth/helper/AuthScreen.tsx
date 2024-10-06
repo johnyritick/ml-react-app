@@ -7,7 +7,6 @@ const AuthScreen = ({ content, path }: { content: string, path: string }) => {
     const navigate = useNavigate()
 
     const handleButtonAction = () => {
-        console.log(path, `/${path}`)
         navigate(`/${path}`);
     }
     return (

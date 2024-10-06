@@ -8,7 +8,7 @@ const CustomGraph = () => {
     }, [])
 
     const getData = async () => {
-        await fetch("http://0.0.0.0:80/ml/get-report", {
+        await fetch(process.env.REACT_APP_BASE_URL + "ml/get-report", {
             method: "GET",
             headers: {
                 "Authorization": localStorage.getItem("auth_token") ?? ""

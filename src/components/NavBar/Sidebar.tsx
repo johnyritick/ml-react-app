@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { DashboardIcon, FaqIcon, GraphIcon, LogoutIcon, MedalStarIcon, MessagesIcon, SettingsIcon } from '../../Assets/Icons/Icon';
-import { QuestionCircleOutlined } from '@ant-design/icons';
+import { DashboardIcon, FaqIcon, GraphIcon, LogoutIcon, SettingsIcon } from '../../Assets/Icons/Icon';
 
 const Sidebar = ({ role }: { role: string }) => {
   return (
@@ -31,10 +30,10 @@ const Sidebar = ({ role }: { role: string }) => {
         <span className="hidden md:inline-block ml-4 text-gray-900">Manage Users</span>
       </Link>
 
-      {/* <Link to="/panel/faq" className='my-4 w-full flex items-center justify-start md:pl-4'>
+      <Link to="/panel/faq" className='my-4 w-full flex items-center justify-start md:pl-4'>
         <FaqIcon />
         <span className="hidden md:inline-block ml-4 text-gray-900">FAQ</span>
-      </Link> */}
+      </Link>
 
       <Link to="/login" className='my-4 w-full flex items-center justify-start md:pl-4'>
         <LogoutIcon />

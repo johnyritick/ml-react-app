@@ -13,7 +13,7 @@ const Register = () => {
     const registerAction = async () => {
         const validate = registerValidator()
         if (validate.success) {
-            await fetch("http://0.0.0.0:80/auth/register", {
+            await fetch(process.env.REACT_APP_BASE_URL + "auth/register", {
                 method: "POST",
                 headers: {
                     "Content-Type": 'application/json'

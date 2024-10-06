@@ -27,7 +27,7 @@ const UserDashboard = () => {
         if (validate.success) {
             setLoading(true)
             setShowReport(false)
-            await fetch("http://0.0.0.0:80/ml/predict", {
+            await fetch(process.env.REACT_APP_BASE_URL + "ml/predict", {
                 method: "POST",
                 headers: {
                     "Authorization": localStorage.getItem("auth_token") ?? "",

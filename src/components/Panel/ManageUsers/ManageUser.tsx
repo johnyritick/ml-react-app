@@ -22,7 +22,7 @@ const ManageUser: React.FC = () => {
 
   const getUsersData = async () => {
     setLoader(true)
-    await fetch("http://0.0.0.0:80/admin/users", {
+    await fetch(process.env.REACT_APP_BASE_URL + "admin/users", {
       method: "GET",
       headers: {
         "Authorization": localStorage.getItem("auth_token") ?? ""
@@ -62,7 +62,7 @@ const ManageUser: React.FC = () => {
 
   const deleteAction = async (user_details: any) => {
     setLoader(true)
-    await fetch("http://0.0.0.0:80/admin/user/" + user_details.id, {
+    await fetch(process.env.REACT_APP_BASE_URL + "admin/user/" + user_details.id, {
       method: "DELETE",
       headers: {
         "Authorization": localStorage.getItem("auth_token") ?? ""

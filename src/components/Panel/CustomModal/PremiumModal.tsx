@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react'
-import ManageUser from '../ManageUsers/ManageUser';
+import React from 'react'
 import UserRecords from '../ManageUsers/UserRecords';
 
 const PremiumModal = (
@@ -11,9 +10,6 @@ const PremiumModal = (
             modalData: any
             closeModal: () => void
         }) => {
-
-    // Function to close the modal
-    console.log("daa", modalData);
 
     return (
         isModalOpen ? (

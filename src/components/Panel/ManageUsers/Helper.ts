@@ -97,3 +97,31 @@ export const UserColumns = [
     key: 'result',
   }
 ];
+
+export const CommentColumns = [
+  {
+    title: 'S.No',
+    dataIndex: 'key',
+    key: 'key'
+  },
+  {
+    title: 'Comment',
+    dataIndex: 'comment',
+    key: 'comment',
+  },
+  {
+    title: 'Faq Id',
+    dataIndex: 'faq_id',
+    key: 'faq_id',
+  },
+  {
+    title: 'User Email',
+    dataIndex: 'email',
+    key: 'email',
+  },
+  {
+    title: 'Created At',
+    dataIndex: 'created_at',
+    key: 'created_at',
+  }
+];

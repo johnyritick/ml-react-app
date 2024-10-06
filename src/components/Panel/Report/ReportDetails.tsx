@@ -23,7 +23,7 @@ const ReportDetails = () => {
 
   const getDetailReport = async () => {
     setLoading(true)
-    await fetch("http://0.0.0.0:80/ml/feature-detail", {
+    await fetch(process.env.REACT_APP_BASE_URL + "ml/feature-detail", {
       method: "POST",
       headers: {
         "Authorization": localStorage.getItem("auth_token") ?? "",
@@ -35,12 +35,11 @@ const ReportDetails = () => {
         if (response.detail && response.detail.length) {
           let temp: any = [];
           Object.keys(response.detail[0]).map((item) => {
-            if(typeof response.detail[0][item] === "string") {
-              temp.push({key: item, value: response.detail[0][item]})
+            if (typeof response.detail[0][item] === "string") {
+              temp.push({ key: item, value: response.detail[0][item] })
             }
           })
-          console.log("temp", temp, response.detail[0]);
-          
+
           // setData(response.detail[0])
           setData(temp)
         } else {
