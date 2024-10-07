@@ -4,7 +4,7 @@ import PageNotFound from './PageNotFound';
 import Dashboard from '../components/Panel/Dashboard/Dashboard';
 import SectionOne from '../components/Panel/Dashboard/SectionOne';
 import Sidebar from '../components/NavBar/Sidebar';
-import UserDashboard from '../components/Panel/Dashboard/UserDashboard';
+import UrlDetector from '../components/Panel/Dashboard/UrlDetector';
 import ReportDetails from '../components/Panel/Report/ReportDetails';
 import UserFaq from '../components/Panel/FAQ/UserFaq';
 import AdminFaq from '../components/Panel/FAQ/AdminFaq';
@@ -47,7 +47,6 @@ const Panel = () => {
         return JSON.parse(jsonPayload);
     }
 
-
     if (loader && role !== "") {
         return <></>
     }
@@ -61,11 +60,11 @@ const Panel = () => {
                     <Route
                         path='dashboard'
                         element={<Suspense fallback={<></>}><Dashboard /></Suspense>}
-                    /> :
-                    <Route
-                        path='dashboard'
-                        element={<Suspense fallback={<></>}><UserDashboard /></Suspense>}
-                    />}
+                    /> : <></>}
+                <Route
+                    path='url-detector'
+                    element={<Suspense fallback={<></>}><UrlDetector /></Suspense>}
+                />
                 {role === "user" ? <Route
                     path='learn-more'
                     element={<Suspense fallback={<></>}><ReportDetails /></Suspense>}

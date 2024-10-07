@@ -4,11 +4,11 @@ import { ToastContainer, toast } from 'react-toastify';
 import { Spin } from 'antd';
 import { useNavigate } from 'react-router';
 
-const UserDashboard = () => {
+const UrlDetector = () => {
     const navigate = useNavigate()
     const [userName, setUsername] = useState<string>("");
     const [url, setUrl] = useState<string>("");
-    const [selectedModal, setSelectedModal] = useState<string>("");
+    // const [selectedModal, setSelectedModal] = useState<string>("");
     const [showReport, setShowReport] = useState<boolean>(false);
     const [loading, setLoading] = useState<boolean>(false);
     const [reportMessage, setReportMessage] = useState<string>("");
@@ -33,7 +33,7 @@ const UserDashboard = () => {
                     "Authorization": localStorage.getItem("auth_token") ?? "",
                     "Content-Type": 'application/json'
                 },
-                body: JSON.stringify({ url: url, model: selectedModal })
+                body: JSON.stringify({ url: url })
             }).then(res => res.json()).then((response) => {
                 if (response.success) {
                     setShowReport(true)
@@ -58,9 +58,9 @@ const UserDashboard = () => {
             return { "success": false, "message": "Url is Missing" }
         }
 
-        if (selectedModal === "") {
-            return { "success": false, "message": "Please select modal" }
-        }
+        // if (selectedModal === "") {
+        //     return { "success": false, "message": "Please select modal" }
+        // }
 
         return { "success": true, "message": "Pass" }
     }
@@ -89,7 +89,7 @@ const UserDashboard = () => {
                     value={url}
                 />
             </div>
-            <div className="relative mb-6">
+            {/* <div className="relative mb-6">
                 <div className="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
                     <WebIcon />
                 </div>
@@ -105,7 +105,7 @@ const UserDashboard = () => {
                     <option value="knn">KNN Model</option>
                     <option value="svc">SVC Model</option>
                 </select>
-            </div>
+            </div> */}
 
             {loading ? <Spin /> :
                 <button
@@ -138,4 +138,4 @@ const UserDashboard = () => {
     </div>
 }
 
-export default UserDashboard
+export default UrlDetector

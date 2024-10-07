@@ -42,7 +42,7 @@ const Login = () => {
                     localStorage.setItem("isLogin", "true")
                     localStorage.setItem("auth_token", response.token)
                     localStorage.setItem("email", email)
-                    navigate("/panel/dashboard")
+                    navigate("/panel/url-detector")
                 } else {
                     toast.error(response.message ?? "Failed to login", {
                         position: 'bottom-center',

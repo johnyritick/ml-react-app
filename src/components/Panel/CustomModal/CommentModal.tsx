@@ -28,9 +28,11 @@ const CommentModal = ({ isModalOpen, closeModal }: {
                         temp.push({
                             key: index + 1,
                             comment: item.comment,
-                            faq_id: item.user_id,
                             email: item.user_email ?? "NA",
-                            created_at: item.created_at
+                            created_at: item.created_at,
+                            action: <a href={'mailto:' + item.user_email} className='text-white bg-blue-600 font-[500] text-[14px] px-4 py-2 rounded-[20px]'>
+                                Reply Now
+                            </a>,
                         })
                     })
                 }
