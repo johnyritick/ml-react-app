@@ -109,11 +109,11 @@ export const CommentColumns = [
     dataIndex: 'comment',
     key: 'comment',
   },
-  {
-    title: 'Faq Id',
-    dataIndex: 'faq_id',
-    key: 'faq_id',
-  },
+  // {
+  //   title: 'Faq Id',
+  //   dataIndex: 'faq_id',
+  //   key: 'faq_id',
+  // },
   {
     title: 'User Email',
     dataIndex: 'email',
@@ -123,5 +123,10 @@ export const CommentColumns = [
     title: 'Created At',
     dataIndex: 'created_at',
     key: 'created_at',
-  }
+  },
+  {
+    title: 'Action',
+    dataIndex: 'action',
+    key: 'action',
+  },
 ];

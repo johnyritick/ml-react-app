@@ -82,7 +82,7 @@ const Register = () => {
                                 </g>
                             </svg>
                         </div>
-                        <input type="text" id="input-group-1" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-gray-300 focus:border-red-300 block w-full ps-12 p-2.5" placeholder="Full Name" onChange={(e) => setName(e.target.value)} value={name} />
+                        <input type="text" id="resgister-group-1" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-gray-300 focus:border-red-300 block w-full ps-12 p-2.5" placeholder="Full Name" onChange={(e) => setName(e.target.value)} value={name} />
                     </div>
                     <div className="relative mb-6">
                         <div className="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
@@ -93,7 +93,7 @@ const Register = () => {
                             </svg>
 
                         </div>
-                        <input type="email" id="input-group-1" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-gray-300 focus:border-red-300 block w-full ps-12 p-2.5" placeholder="Email Address" onChange={(e) => setEmail(e.target.value)} value={email} />
+                        <input type="email" id="register-group-12" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-gray-300 focus:border-red-300 block w-full ps-12 p-2.5" placeholder="Email Address" onChange={(e) => setEmail(e.target.value)} value={email} />
                     </div>
                     <div className="relative mb-6">
                         <div className="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
@@ -104,7 +104,7 @@ const Register = () => {
                             </svg>
 
                         </div>
-                        <input type="password" id="input-group-1" className="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-gray-300 focus:border-gray-300 block w-full ps-12 p-2.5" placeholder="Password" onChange={(e) => setPassword(e.target.value)} value={password} />
+                        <input type="password" id="register-group-123" className="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-gray-300 focus:border-gray-300 block w-full ps-12 p-2.5" placeholder="Password" onChange={(e) => setPassword(e.target.value)} value={password} />
                     </div>
 
                     {loader ? <Spin /> : <button className='text-white bg-[#0575E6] px-[26px] py-[18px] rounded-[30px]' onClick={registerAction}>Register</button>}

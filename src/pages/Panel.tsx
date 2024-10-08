@@ -4,12 +4,14 @@ import PageNotFound from './PageNotFound';
 import Dashboard from '../components/Panel/Dashboard/Dashboard';
 import SectionOne from '../components/Panel/Dashboard/SectionOne';
 import Sidebar from '../components/NavBar/Sidebar';
-import UserDashboard from '../components/Panel/Dashboard/UserDashboard';
+import UrlDetector from '../components/Panel/Dashboard/UrlDetector';
 import ReportDetails from '../components/Panel/Report/ReportDetails';
 import UserFaq from '../components/Panel/FAQ/UserFaq';
 import AdminFaq from '../components/Panel/FAQ/AdminFaq';
 import ManageUser from '../components/Panel/ManageUsers/ManageUser';
 import CustomGraph from '../components/Panel/Report/CustomGraph';
+import ViewUserQueries from '../components/Panel/FAQ/ViewUserQueries';
+import AskQueries from '../components/Panel/FAQ/AskQueries';
 
 const Panel = () => {
     const navigate = useNavigate();
@@ -47,7 +49,6 @@ const Panel = () => {
         return JSON.parse(jsonPayload);
     }
 
-
     if (loader && role !== "") {
         return <></>
     }
@@ -61,15 +62,15 @@ const Panel = () => {
                     <Route
                         path='dashboard'
                         element={<Suspense fallback={<></>}><Dashboard /></Suspense>}
-                    /> :
-                    <Route
-                        path='dashboard'
-                        element={<Suspense fallback={<></>}><UserDashboard /></Suspense>}
-                    />}
-                {role === "user" ? <Route
+                    /> : <></>}
+                <Route
+                    path='url-detector'
+                    element={<Suspense fallback={<></>}><UrlDetector /></Suspense>}
+                />
+                <Route
                     path='learn-more'
                     element={<Suspense fallback={<></>}><ReportDetails /></Suspense>}
-                /> : <></>}
+                />
                 {role === "user" ? <Route
                     path='faq'
                     element={<Suspense fallback={<></>}><UserFaq /></Suspense>}
@@ -87,6 +88,13 @@ const Panel = () => {
                     element={<Suspense fallback={<></>}><ManageUser /></Suspense>}
                 /> : <></>}
 
+
+                <Route
+                    path='queries'
+                    element={<Suspense fallback={<></>}>
+                        {role === "admin" ? <ViewUserQueries /> : <AskQueries />}
+                    </Suspense>}
+                />
                 <Route path='section' element={<Suspense fallback={<></>}><SectionOne /></Suspense>} />
                 <Route path='/*' element={<Suspense fallback={<></>}><PageNotFound /></Suspense>} />
             </Routes>
