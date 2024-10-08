@@ -10,6 +10,8 @@ import UserFaq from '../components/Panel/FAQ/UserFaq';
 import AdminFaq from '../components/Panel/FAQ/AdminFaq';
 import ManageUser from '../components/Panel/ManageUsers/ManageUser';
 import CustomGraph from '../components/Panel/Report/CustomGraph';
+import ViewUserQueries from '../components/Panel/FAQ/ViewUserQueries';
+import AskQueries from '../components/Panel/FAQ/AskQueries';
 
 const Panel = () => {
     const navigate = useNavigate();
@@ -65,10 +67,10 @@ const Panel = () => {
                     path='url-detector'
                     element={<Suspense fallback={<></>}><UrlDetector /></Suspense>}
                 />
-                {role === "user" ? <Route
+                <Route
                     path='learn-more'
                     element={<Suspense fallback={<></>}><ReportDetails /></Suspense>}
-                /> : <></>}
+                />
                 {role === "user" ? <Route
                     path='faq'
                     element={<Suspense fallback={<></>}><UserFaq /></Suspense>}
@@ -86,6 +88,13 @@ const Panel = () => {
                     element={<Suspense fallback={<></>}><ManageUser /></Suspense>}
                 /> : <></>}
 
+
+                <Route
+                    path='queries'
+                    element={<Suspense fallback={<></>}>
+                        {role === "admin" ? <ViewUserQueries /> : <AskQueries />}
+                    </Suspense>}
+                />
                 <Route path='section' element={<Suspense fallback={<></>}><SectionOne /></Suspense>} />
                 <Route path='/*' element={<Suspense fallback={<></>}><PageNotFound /></Suspense>} />
             </Routes>

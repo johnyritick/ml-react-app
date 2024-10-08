@@ -30,6 +30,11 @@ const Sidebar = ({ role }: { role: string }) => {
         <span className="hidden md:inline-block ml-4 text-gray-900">FAQ</span>
       </Link>
 
+      <Link to="/panel/queries" className='my-4 w-full flex items-center justify-start md:pl-4'>
+        <FaqIcon />
+        <span className="hidden md:inline-block ml-4 text-gray-900">Queries</span>
+      </Link>
+
       <Link to="/login" className='my-4 w-full flex items-center justify-start md:pl-4'>
         <LogoutIcon />
         <span className="hidden md:inline-block ml-4 text-gray-900">Logout</span>

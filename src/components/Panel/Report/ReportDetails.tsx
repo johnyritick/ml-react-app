@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import { useLocation } from 'react-router'
+import { useLocation, useNavigate } from 'react-router'
 import { ToastContainer, toast } from 'react-toastify';
 import { Button, Spin } from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';
 
 const ReportDetails = () => {
+  const navigate = useNavigate()
   const location = useLocation()
   const [loading, setLoading] = useState<boolean>(false);
   const [data, setData] = useState<any>([])
@@ -65,6 +66,9 @@ const ReportDetails = () => {
     }
   }
 
+  const testAnotherResult = () => {
+    navigate("/panel/url-detector")
+  }
 
   return (
     <React.Fragment>
@@ -72,8 +76,17 @@ const ReportDetails = () => {
         <h2 className='text-[44px] text-center mt-6'>Loading ...</h2>
         <Spin indicator={<LoadingOutlined style={{ fontSize: 48 }} spin />} />
       </div> : <div className='w-full h-full overflow-y-auto hide-scrollbar'>
-        <h2 className='text-[32px] font-[700]'>Url Detailed Report</h2>
-        <p className='text-[24px] bg-lime-300 w-fit rounded-[30px] px-[20px] my-4'>{location.state.url}</p>
+        <div className='flex flex-row justify-between'>
+          <div className='flex flex-col'>
+            <h2 className='text-[32px] font-[700]'>Url Detailed Report</h2>
+            <p className='text-[24px] bg-lime-300 w-fit rounded-[30px] px-[20px] my-4'>{location.state.url}</p>
+          </div>
+          <p className='text-white bg-blue-600 px-4 py-2 font-[500] text-[14px] rounded-[20px] h-fit cursor-pointer' onClick={testAnotherResult}>
+            Check Another Url
+          </p>
+        </div>
+
+
         <hr className='my-4 h-[2px] border-none bg-[#0575E6]' />
         <PremiumTable data={data} />
       </div>}
