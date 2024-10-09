@@ -35,12 +35,12 @@ const ReportDetails = () => {
       if (response.success) {
         if (response.detail && response.detail.length) {
           let temp: any = [];
-          Object.keys(response.detail[0]).map((item) => {
-            if (typeof response.detail[0][item] === "string") {
-              temp.push({ key: item, value: response.detail[0][item] })
-            }
-          })
-
+          // Object.keys(response.detail[0]).map((item) => {
+          //   if (typeof response.detail[0][item] === "string") {
+          //     temp.push({ key: item, value: response.detail[0][item] })
+          //   }
+          // })
+          temp = flattenObject(response.detail[0]);
           // setData(response.detail[0])
           setData(temp)
         } else {
@@ -64,6 +64,25 @@ const ReportDetails = () => {
     } else {
       return { "success": false, "message": "Url is Missing" }
     }
+  }
+
+  const flattenObject = (obj: any, parentKey = '', result: any = []) => {
+    for (let key in obj) {
+      if (obj.hasOwnProperty(key)) {
+        const newKey = parentKey ? `${parentKey}_${key}` : key; // Concatenate parent key with current key using an underscore
+
+        if (typeof obj[key] === 'object' && !Array.isArray(obj[key])) {
+          // Recursively flatten the nested object
+          flattenObject(obj[key], newKey, result);
+        } else {
+          // Assign the value to the result object
+          if (obj[key] !== "") {
+            result.push({ "key": newKey, "value": obj[key] ?? "NA" })
+          }
+        }
+      }
+    }
+    return result;
   }
 
   const testAnotherResult = () => {
