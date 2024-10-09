@@ -16,7 +16,7 @@ const AuthScreen = ({ content, path }: { content: string, path: string }) => {
                 <h3 className='text-white font-medium my-4'>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eleifend elit a viverra euismod. Ut risus enim, scelerisque non pharetra a, egestas sit amet lectus. Phasellus tempor mi ut aliquam tristique.
                 </h3>
-                <button className='cursor-pointer border border-r-2 border-white bg-[#0575E6] w-fit text-white rounded-[30px] px-[30px] py-[8px] mt-6' onClick={handleButtonAction}>
+                <button className='cursor-pointer border border-r-2 border-white bg-[#0575E6] w-fit text-white rounded-[30px] px-[30px] py-[8px] mt-6 z-[1000]' onClick={handleButtonAction}>
                     {content}
                 </button>
             </div>
